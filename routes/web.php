@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//后端首页
+Route::prefix('/api')->group(function(){
+    Route::any('/index','Admin\AdminController@index');   //首页
+    Route::any('/lyear','Admin\AdminController@lyear');   //后台首页
+    Route::any('/lanmu','Admin\AdminController@lanmu');   //全部栏目
+    Route::any('/lanmu_add','Admin\AdminController@lanmu_add');   //添加栏目
+});
