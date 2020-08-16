@@ -45,7 +45,6 @@
 
                     </ul>
                 </nav>
-
                 <div class="sidebar-footer">
                     <p class="copyright">Copyright &copy; 2019. <a target="_blank" href="/">我是作者</a> All rights reserved.</p>
                 </div>

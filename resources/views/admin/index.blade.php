@@ -3,5 +3,4 @@
 @section('content')
 
    {{url('api/lyear')}}
-
 @endsection

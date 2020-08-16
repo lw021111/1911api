@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="js/jquery-tags-input/jquery.tagsinput.min.css">
     <link href="css/style.min.css" rel="stylesheet">
 </head>
-
 <body>
 <div class="container-fluid p-t-15">
 
