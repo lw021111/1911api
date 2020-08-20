@@ -14,7 +14,7 @@
 Route::get('/', function () {
     phpinfo();
 });
-//后端首页
+//后端首页1
 Route::prefix('/api')->group(function(){
     Route::any('/index','Admin\AdminController@index');   //首页
     Route::any('/lyear','Admin\AdminController@lyear');   //后端首页
