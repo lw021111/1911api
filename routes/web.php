@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//新闻列表接口
+Route::any('newsList','api\NewsController@newsList');
