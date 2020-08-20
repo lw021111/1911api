@@ -21,8 +21,12 @@ Route::any('newsList','api\NewsController@newsList');
 =======
     phpinfo();
 });
+<<<<<<< HEAD
 >>>>>>> c817299379ba94a3667eb0d685cbd169d007b341
 //后端首页
+=======
+//后端首页1
+>>>>>>> 12dbb52506823d750e8298a407b15909dec3b485
 Route::prefix('/api')->group(function(){
     Route::any('/index','Admin\AdminController@index');   //首页
     Route::any('/lyear','Admin\AdminController@lyear');   //后端首页
