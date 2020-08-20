@@ -36,6 +36,20 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+<<<<<<< HEAD
+=======
+        if($exception instanceof ApiExceptions){
+            $msg=$exception->getMessage();
+            $code=$exception->getCode();
+            $arr=[
+                'msg'=>$msg,
+                'code'=>$code,
+                'data'=>[]
+            ];
+            echo json_encode($arr,JSON_UNESCAPED_UNICODE);
+            exit;
+        }
+>>>>>>> c817299379ba94a3667eb0d685cbd169d007b341
         parent::report($exception);
     }
 
