@@ -43,6 +43,12 @@
                             </ul>
                         </li>
 
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="mdi mdi-palette"></i> <span>接口管理</span></a>
+                            <ul class="nav nav-subnav">
+                                <li> <a class="multitabs" href="{{url('api/blog_list')}}">接口列表</a> </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <div class="sidebar-footer">
