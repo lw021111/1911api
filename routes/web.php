@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//登录接口
+Route::any("login","api\UserController@login");
