@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Exceptions\ApiExceptions;
+use Illuminate\Support\Facades\Redis;
+
 class CommonController extends Controller
 {
     public function success($data=[],$msg='ok',$status=200){
@@ -58,6 +60,25 @@ class CommonController extends Controller
         }else{
             return false;
         }
+    }
+
+    public function getCacheVersion($cache_type = 'news')
+    {
+        switch($cache_type){
+            case 'news':
+                $cache_version_key = 'news_cache_version';
+                $version = Redis::get($cache_version_key);
+                break;
+            default:
+                break;
+        }
+
+        if(empty($version))
+        {
+            Redis::set($cache_version_key,1);
+                $version = 1;
+        }
+        return $version;
     }
 
 

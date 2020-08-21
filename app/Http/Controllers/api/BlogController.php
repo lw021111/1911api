@@ -16,12 +16,12 @@ class BlogController extends CommonController
     }
 
     public function showImageCode(Request $request){
-        $sid=$request->get('sid');
-        if(empty($sid)){
-            throw new ApiExceptions('图片验证码输出失败');
-        }
-        $request->session()->setid($sid);
-        $request->session()->start();
+//        $sid=$request->get('sid');
+//        if(empty($sid)){
+//            throw new ApiExceptions('图片验证码输出失败');
+//        }
+//        $request->session()->setid($sid);
+//        $request->session()->start();
 
 
         header('Content-Type:image/png');
