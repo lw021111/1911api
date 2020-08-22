@@ -11,7 +11,7 @@ class BlogController extends CommonController
     public function getImgUrl(Request $request){
         $request->session()->start();
         $sid=$request->session()->getId();
-        $arr['url']='http://yyapi.qxywzc.cn/showImageCode?sid='.$sid;
+        $arr['url']='http://www.1911api.com/showImageCode?sid='.$sid;
         $arr['sid']=$sid;
         return $this->success($arr);
     }

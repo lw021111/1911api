@@ -33,7 +33,6 @@ Route::prefix('/api')->group(function(){
     Route::any('/lyear','Admin\AdminController@lyear');   //后端首页
     Route::any('/lanmu','Admin\AdminController@lanmu');   //全部栏目
     Route::any('/lanmu_add','Admin\AdminController@lanmu_add');   //添加栏目
-
     Route::any('/blog_list','Admin\BlogController@blog_list');   //接口展示1
 });
 
@@ -47,7 +46,7 @@ Route::any('showImageCode','api\BlogController@showImageCode');
 Route::any('getImgUrl','api\BlogController@getImgUrl');
 
 //获取图片验证码
-Route::any('getImgUrl','api\BlogController@getImageCodeUrl');
+//Route::any('getImgUrl','api\BlogController@getImageCodeUrl');
 //发送短信验证码
 
 Route::any('sendMsgCode','api\MsgController@sendMsgCode');
