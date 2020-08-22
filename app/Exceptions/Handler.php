@@ -48,6 +48,7 @@ class Handler extends ExceptionHandler
             echo json_encode($arr,JSON_UNESCAPED_UNICODE);
             exit;
         }
+
         parent::report($exception);
     }
 

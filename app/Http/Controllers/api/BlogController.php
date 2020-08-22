@@ -5,23 +5,24 @@ use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Exceptions\ApiExceptions;
+
 class BlogController extends CommonController
 {
     public function getImgUrl(Request $request){
         $request->session()->start();
         $sid=$request->session()->getId();
-        $arr['url']='http://www.1911api.com/showImageCode?sid='.$sid;
+        $arr['url']='http://yyapi.qxywzc.cn/showImageCode?sid='.$sid;
         $arr['sid']=$sid;
         return $this->success($arr);
     }
 
     public function showImageCode(Request $request){
-        $sid=$request->get('sid');
-        if(empty($sid)){
-            throw new ApiExceptions('图片验证码输出失败');
-        }
-        $request->session()->setid($sid);
-        $request->session()->start();
+//        $sid=$request->get('sid');
+//        if(empty($sid)){
+//            throw new ApiExceptions('图片验证码输出失败');
+//        }
+//        $request->session()->setid($sid);
+//        $request->session()->start();
 
 
         header('Content-Type:image/png');
@@ -44,7 +45,6 @@ class BlogController extends CommonController
         imagepng($im);
         imagedestroy($im);
         exit;
-
 
 
 

@@ -30,6 +30,11 @@ class MsgController extends CommonController
         }else{
             $request->session()->forget('img_code');
         }
+        #验证手机号是否存在
+        if($this -> checkUserExists( $phone ) > 0)
+        {
+            throw new ApiExceptions('你的账户已经注册过了,不能在进行注册');
+        }
 
         //发送短信验证码
         $where=[
