@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Exceptions\ApiExceptions;
+<<<<<<< HEAD
 use App\Model\MsgModel;
+=======
+use Illuminate\Support\Facades\Redis;
+>>>>>>> 7e855420969ae1356c41e781edcd408b53dfba25
 
 class CommonController extends Controller
 {
@@ -73,6 +77,28 @@ class CommonController extends Controller
         ];
         return MsgModel::where($where) -> count();
 
+<<<<<<< HEAD
     }
+=======
+    public function getCacheVersion($cache_type = 'news')
+    {
+        switch($cache_type){
+            case 'news':
+                $cache_version_key = 'news_cache_version';
+                $version = Redis::get($cache_version_key);
+                break;
+            default:
+                break;
+        }
+
+        if(empty($version))
+        {
+            Redis::set($cache_version_key,1);
+                $version = 1;
+        }
+        return $version;
+    }
+
+>>>>>>> 7e855420969ae1356c41e781edcd408b53dfba25
 
 }
