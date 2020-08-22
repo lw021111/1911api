@@ -14,5 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 //登录接口
 Route::any("login","api\UserController@login");
+
+
+//新闻列表接口
+Route::any('/newsList','api\NewsController@newsList');
+
+Route::prefix('/api')->group(function(){
+    Route::any('/index','Admin\AdminController@index');   //首页
+    Route::any('/lyear','Admin\AdminController@lyear');   //后端首页
+    Route::any('/lanmu','Admin\AdminController@lanmu');   //全部栏目
+    Route::any('/lanmu_add','Admin\AdminController@lanmu_add');   //添加栏目
+});
+
+
+Route::any('showImageCode','api\BlogController@showImageCode');
+Route::any('getImgUrl','api\BlogController@getImgUrl');
+Route::any('sendMsgCode','api\MsgController@sendMsgCode');
+

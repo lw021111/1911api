@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\ParamMsg\Error;
+use App\Model\User;
 class UserController extends Controller
 {
 //登录接值
@@ -20,14 +21,39 @@ class UserController extends Controller
                     ];
                    return $err;
                 }
-                 if(empty($phone)){
+                 if(empty($password)){
                            $err=[
                                'error'=>100,
-                                "msg"=>'手机号不为空',
+                                "msg"=>'密码不为空',
                                ];
                                    return $err;
                     }
+                //判断手机号
+                $where=[
+                    ['user_tel','=',$phone]
+                ];
+                $phones=User::where($where)->first();
 
+                if($phones){
+                     if($password!=$phones['user_pwd']){
+                             $err=[
+                                  "error"=>100,
+                                    "msg"=>"登录失败请重新登录",
+                                     ];
+                                   return $err;
+                    }
+                    $err=[
+                        "error"=>200,
+                        "msg"=>"登录成功"
+                    ];
+                    return $err;
+                }else{
+                     $err=[
+                        "error"=>100,
+                         "msg"=>"登录失败,请重新登录"
+                        ];
+                        return $err;
+                    }
 
     }
     protected function checkParamIsEmpty( $key )
