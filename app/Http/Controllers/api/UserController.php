@@ -15,7 +15,7 @@ use App\model\MsgModel;
  * 用户相关接口
  * */
 
-class UserController extends Controller
+class UserController extends CommonController
 {
 //登录接值
     public function login(Request $request)
