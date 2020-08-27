@@ -12,7 +12,7 @@ class NewsModel extends Model
     public $timestamps = false;
 
     public function getCate(){
-        return $this->hasOne("App\Model\Cate","cate_id","cate_id");
+        return $this->hasOne("App\Model\CateModel","cate_id","cate_id");
 
     }
 }

@@ -17,9 +17,11 @@ Route::any("login","api\UserController@login");
 
 
 //新闻列表接口
-
-Route::any('/newsList','api\NewsController@newsList');
-
+Route::any('newsList','api\NewsController@newsList');
+//新闻详情页
+Route::any('newsDetail','api\NewsController@newsDetail');
+//热点资讯
+Route::any('wifiList','api\NewsController@wifiList');
 
 Route::get('/', function () {
     phpinfo();

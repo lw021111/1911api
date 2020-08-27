@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\api;
-
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\ParamMsg\Error;
-use App\Model\User;
-use App\Exceptions\ApiExceptionss;
+use App\model\UserModel;
+use App\Exceptions\ApiExceptions;
 use App\Http\Controllers\CommonController;
 use App\model\MsgModel;
 
@@ -15,54 +13,34 @@ use App\model\MsgModel;
  * 用户相关接口
  * */
 
-class UserController extends Controller
+class UserController extends CommonController
 {
 //登录接值
     public function login(Request $request)
     {
-//        $phone=$this->checkParamIsEmpty('phone');
-//        $password=$this->checkParamIsEmpty('password');
-        $password = $request['password'];
-        $phone = $request['phone'];
+        $phone=$this->checkParamIsEmpty('phone');
+        $password=$this->checkParamIsEmpty('password');
+//        $password = $request['password'];
+//        $phone = $request['phone'];
         if (empty($phone)) {
-            $err = [
-                'error' => 100,
-                "msg" => '手机号不为空',
-            ];
-            return $err;
+            throw new ApiExceptions('手机号不能为空');
         }
         if (empty($password)) {
-            $err = [
-                'error' => 100,
-                "msg" => '密码不为空',
-            ];
-            return $err;
+            throw new ApiExceptions('密码不能为空');
         }
         //判断手机号
         $where = [
             ['user_tel', '=', $phone]
         ];
-        $phones = User::where($where)->first();
+        $phones = UserModel::where($where)->first();
 
         if ($phones) {
             if ($password != $phones['user_pwd']) {
-                $err = [
-                    "error" => 100,
-                    "msg" => "登录失败请重新登录",
-                ];
-                return $err;
-            }
-            $err = [
-                "error" => 200,
-                "msg" => "登录成功"
-            ];
-            return $err;
+             throw new ApiExceptions('账号或密码错误');
+            };
+            throw new ApiExceptions('登录成功');
         } else {
-            $err = [
-                "error" => 100,
-                "msg" => "登录失败,请重新登录"
-            ];
-            return $err;
+            throw new ApiExceptions('账号或密码错误');
         }
 
     }
