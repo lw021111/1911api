@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Exceptions\ApiExceptions;
-
-use App\Model\MsgModel;
-
+use App\model\MsgModel;
 use Illuminate\Support\Facades\Redis;
 
 
